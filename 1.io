@@ -41,19 +41,16 @@ tokens foreach(k, v,
   dir := v at(0) asCharacter
   num := v exSlice(1) asNumber
 
-  write("[", offset x, ",", offset y, "]")
-  write("<", dir, ",", num, ">")
-
   if (dir == "L", direction turnLeft)
   if (dir == "R", direction turnRight)
 
   # 0 -> NORTH, 1 -> EAST, 2 -> SOUTH, 3 -> WEST
   "{" print
   num print
-  if (direction value == 0, offset y = offset y + num; "N}" print)
-  if (direction value == 1, offset x = offset x + num; "E}" print)
-  if (direction value == 2, offset y = offset y - num; "S}" print)
-  if (direction value == 3, offset x = offset x - num; "W}" print)
+  if (direction value == 0, offset y = offset y + num)
+  if (direction value == 1, offset x = offset x + num)
+  if (direction value == 2, offset y = offset y - num)
+  if (direction value == 3, offset x = offset x - num)
   "\n" print
 )
 
